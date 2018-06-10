@@ -22,7 +22,7 @@ pod 'MKStepper'
 
 ## Author
 
-mhgolap11@gmail.com, kamrul@pathao.com
+mhgolap11@gmail.com
 
 ## License
 
