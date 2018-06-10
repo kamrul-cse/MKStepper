@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MKStepper_Example' do
+  pod 'MKStepper', :path => '../'
+
+  target 'MKStepper_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
