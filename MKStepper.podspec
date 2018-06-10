@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MKStepper'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of MKStepper.'
+  s.summary          = 'A simple customizable stepper for iOS.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/mhgolap11@gmail.com/MKStepper'
+  s.homepage         = 'https://github.com/kamrul-cse/MKStepper.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'mhgolap11@gmail.com' => 'kamrul@pathao.com' }
-  s.source           = { :git => 'https://github.com/mhgolap11@gmail.com/MKStepper.git', :tag => s.version.to_s }
+  s.author           = { 'mhgolap11@gmail.com' => 'mhgolap11@gmail.com' }
+  s.source           = { :git => 'https://github.com/kamrul-cse/MKStepper.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
@@ -37,6 +37,6 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  # s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
