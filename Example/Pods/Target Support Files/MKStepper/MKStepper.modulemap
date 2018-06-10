@@ -1,0 +1,6 @@
+framework module MKStepper {
+  umbrella header "MKStepper-umbrella.h"
+
+  export *
+  module * { export * }
+}
