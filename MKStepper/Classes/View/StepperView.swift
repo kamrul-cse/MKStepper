@@ -13,7 +13,7 @@ import UIKit
 }
 
 @IBDesignable
-class StepperView: UIView {
+open class StepperView: UIView {
     
     @IBInspectable var minValue:Int = 1
     @IBInspectable var maxValue:Int = 5
@@ -95,7 +95,7 @@ class StepperView: UIView {
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
