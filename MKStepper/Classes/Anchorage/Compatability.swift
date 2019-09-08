@@ -42,7 +42,7 @@
 
     public typealias LayoutPriority = UILayoutPriority
     public typealias EdgeInsets = UIEdgeInsets
-    public typealias ConstraintAttribute = NSLayoutAttribute
+public typealias ConstraintAttribute = NSLayoutConstraint.Attribute
 #endif
 
 #if swift(>=4.0)

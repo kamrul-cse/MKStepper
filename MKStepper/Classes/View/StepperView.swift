@@ -10,6 +10,8 @@ import UIKit
 
 @objc public protocol StepperViewDelegate: class {
     func valueDidChange(value: Int)
+    func reachedAtMin(value: Int)
+    func reachedAtMax(value: Int)
 }
 
 @IBDesignable
@@ -22,7 +24,7 @@ open class StepperView: UIView {
     var minusButton: UIButton!
     var valueLabel: UILabel!
     
-    @IBOutlet var delegate:StepperViewDelegate?
+    open var delegate: StepperViewDelegate?
     
     var stepperValue: Int = 0 {
         didSet {
@@ -102,11 +104,21 @@ open class StepperView: UIView {
     
     @objc func up(_ sender: Any) {
         stepperValue = min((stepperValue + 1), maxValue)
-        delegate?.valueDidChange(value: stepperValue)
+        
+        if stepperValue == maxValue {
+            delegate?.reachedAtMax(value: stepperValue)
+        } else {
+            delegate?.valueDidChange(value: stepperValue)
+        }
     }
     
     @objc func down(_ sender: Any) {
         stepperValue = max((stepperValue - 1), minValue)
-        delegate?.valueDidChange(value: stepperValue)
+        
+        if stepperValue == minValue {
+            delegate?.reachedAtMin(value: stepperValue)
+        } else {
+            delegate?.valueDidChange(value: stepperValue)
+        }
     }
 }

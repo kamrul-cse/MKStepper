@@ -1,5 +1,5 @@
 PODS:
-  - MKStepper (0.1.0)
+  - MKStepper (0.1.2)
 
 DEPENDENCIES:
   - MKStepper (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MKStepper: 2188aee080def5c2cc75b630372f0eb09813c74e
+  MKStepper: cf19884f3e18807aeeffa02bbe33f0785da74049
 
 PODFILE CHECKSUM: 1471f2eba89d3ff15cf4b53f8abd20237adcf712
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.7.5

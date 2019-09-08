@@ -12,9 +12,11 @@ import MKStepper
 class ViewController: UIViewController {
 
     @IBOutlet weak var stepperView: StepperView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        stepperView.delegate = self
         
     }
 
@@ -23,5 +25,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension ViewController: StepperViewDelegate {
+    func valueDidChange(value: Int) {
+        print(value)
+    }
+    func reachedAtMin(value: Int) {
+        print("Reached at min")
+    }
+    func reachedAtMax(value: Int) {
+        print("Reached at max")
+    }
 }
 

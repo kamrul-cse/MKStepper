@@ -1,22 +1,24 @@
 {
   "name": "MKStepper",
-  "version": "0.1.0",
-  "summary": "A short description of MKStepper.",
+  "version": "0.1.2",
+  "swift_versions": "5.0",
+  "summary": "A simple customizable stepper for iOS.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/mhgolap11@gmail.com/MKStepper",
+  "homepage": "https://github.com/kamrul-cse/MKStepper.git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "mhgolap11@gmail.com": "kamrul@pathao.com"
+    "mhgolap11@gmail.com": "mhgolap11@gmail.com"
   },
   "source": {
-    "git": "https://github.com/mhgolap11@gmail.com/MKStepper.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/kamrul-cse/MKStepper.git",
+    "tag": "0.1.2"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0"
   },
-  "source_files": "MKStepper/Classes/**/*"
+  "source_files": "MKStepper/Classes/**/*",
+  "swift_version": "5.0"
 }
