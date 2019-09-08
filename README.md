@@ -9,7 +9,50 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+Screenshots:
+
+Simply Add `UIView` to your `Storyboard` and then change the class to `StepperView`.
+
+<img src="https://github.com/kamrul-cse/MKStepper/blob/master/Example/Screenshots/screenshot_stepper_class.png" width="100%" > 
+
+You can set `min` and `max` value. By default it set to `1...5`
+
+<img src="https://github.com/kamrul-cse/MKStepper/blob/master/Example/Screenshots/screenshot_stepper_property.png" width="100%" > 
+
+
+Now you are stepper is ready! Run and check it. Cheers ✌️!
+
+<img src="https://github.com/kamrul-cse/MKStepper/blob/master/Example/Screenshots/screenshot_stepper_output.png" width="200px" >
+
+Sample Usage:
+
+```swift
+import UIKit
+import MKStepper
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var stepperView: StepperView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        stepperView.delegate = self
+    }
+}
+
+extension ViewController: StepperViewDelegate {
+    func valueDidChange(value: Int) {
+        print(value)
+    }
+    func reachedAtMin(value: Int) {
+        print("Reached at min")
+    }
+    func reachedAtMax(value: Int) {
+        print("Reached at max")
+    }
+}
+```
 
 ## Installation
 
@@ -21,8 +64,10 @@ pod 'MKStepper'
 ```
 
 ## Author
-
+Md. Kamrul Hasan
 mhgolap11@gmail.com
+
+Copyright © mkhglab@gmail.com
 
 ## License
 
