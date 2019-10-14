@@ -1,5 +1,5 @@
 PODS:
-  - MKStepper (0.1.2)
+  - MKStepper (0.1.4)
 
 DEPENDENCIES:
   - MKStepper (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MKStepper: cf19884f3e18807aeeffa02bbe33f0785da74049
+  MKStepper: 5e88a5bb6e7abd79df6a49252705982a08911126
 
 PODFILE CHECKSUM: 1471f2eba89d3ff15cf4b53f8abd20237adcf712
 

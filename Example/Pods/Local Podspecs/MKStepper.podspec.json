@@ -1,6 +1,6 @@
 {
   "name": "MKStepper",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "swift_versions": "5.0",
   "summary": "A simple customizable stepper for iOS.",
   "description": "TODO: Add long description of the pod here.",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/kamrul-cse/MKStepper.git",
-    "tag": "0.1.2"
+    "tag": "0.1.4"
   },
   "platforms": {
     "ios": "9.0"
