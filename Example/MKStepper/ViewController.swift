@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         stepperView.delegate = self
-        
+        stepperView.stepperValue = 2
     }
 
     override func didReceiveMemoryWarning() {

@@ -26,7 +26,7 @@ open class StepperView: UIView {
     
     open var delegate: StepperViewDelegate?
     
-    var stepperValue: Int = 0 {
+    open var stepperValue: Int = 0 {
         didSet {
             valueLabel.text = String(format: "%d", stepperValue)
             layoutIfNeeded()
