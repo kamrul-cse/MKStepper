@@ -20,7 +20,7 @@ You can set `min` and `max` value. By default it set to `1...5`
 <img src="https://github.com/kamrul-cse/MKStepper/blob/master/Example/Screenshots/screenshot_stepper_property.png" width="100%" > 
 
 
-Now you are stepper is ready! Run and check it. Cheers ✌️!
+Now your stepper is ready! Run and check it. Cheers ✌️!
 
 <img src="https://github.com/kamrul-cse/MKStepper/blob/master/Example/Screenshots/screenshot_stepper_output.png" width="200px" >
 
