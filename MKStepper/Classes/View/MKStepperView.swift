@@ -15,14 +15,24 @@ import UIKit
 }
 
 @IBDesignable
-open class StepperView: UIView {
+open class MKStepperView: UIView {
     
-    @IBInspectable var minValue:Int = 1
-    @IBInspectable var maxValue:Int = 5
+    @IBInspectable open var minValue:Int = 1
+    @IBInspectable open var maxValue:Int = 5
+    
+    @IBInspectable open var color: UIColor = #colorLiteral(red: 0.2470588235, green: 0.6352941176, blue: 0.2470588235, alpha: 1) {
+        didSet {
+            containerBg.backgroundColor = color
+            layer.borderWidth = 1
+            layer.borderColor = color.cgColor
+        }
+    }
     
     var plusButton: UIButton!
     var minusButton: UIButton!
     var valueLabel: UILabel!
+    var containerBg: UIView!
+    var bg: UIView!
     
     open var delegate: StepperViewDelegate?
     
@@ -34,7 +44,7 @@ open class StepperView: UIView {
     }
     
     func commonInit() {
-        let buttonPadding = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+        let buttonPadding = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
         let cornerRadius: CGFloat = 2
         
         func buttonView(title: String, corners: CACornerMask) -> (UIView, UIButton) {
@@ -45,7 +55,7 @@ open class StepperView: UIView {
             button.setTitle(title, for: .normal)
             
             let bg = UIView(frame: CGRect.zero)
-            bg.backgroundColor = #colorLiteral(red: 0.2470588235, green: 0.6352941176, blue: 0.2470588235, alpha: 1)
+            bg.backgroundColor = .clear
             bg.clipsToBounds = true
             bg.layer.cornerRadius = cornerRadius
             if #available(iOS 11.0, *) {
@@ -60,10 +70,11 @@ open class StepperView: UIView {
             button.edgeAnchors == container.edgeAnchors
             bg.edgeAnchors == container.edgeAnchors + buttonPadding
             
+            container.clipsToBounds = true
             return (container, button)
         }
         
-        let containerBg = UIView(frame: CGRect.zero)
+        containerBg = UIView(frame: CGRect.zero)
         addSubview(containerBg)
         containerBg.edgeAnchors == edgeAnchors + buttonPadding
         
@@ -71,25 +82,28 @@ open class StepperView: UIView {
         plusButton = _plusButton
         plusButton.addTarget(self, action: #selector(up(_:)), for: .touchUpInside)
         
-        let (minusView, _minusButton) = buttonView(title: "-", corners: [.layerMinXMaxYCorner, .layerMinXMinYCorner])
+        let (minusView, _minusButton) = buttonView(title: "−", corners: [.layerMinXMaxYCorner, .layerMinXMinYCorner])
         minusButton = _minusButton
         minusButton.addTarget(self, action: #selector(down(_:)), for: .touchUpInside)
         
         valueLabel = UILabel(frame: CGRect.zero)
         valueLabel.textAlignment = .center
         valueLabel.text = String(format: "%d", minValue)
+        valueLabel.backgroundColor = .white
         
         let stack = UIStackView(arrangedSubviews: [minusView, valueLabel, plusView])
-        stack.alignment = .center
+        stack.alignment = .fill
         stack.axis = .horizontal
         
         addSubview(stack)
-        stack.edgeAnchors == edgeAnchors
+        stack.edgeAnchors == edgeAnchors + buttonPadding
         
-        containerBg.layer.cornerRadius = cornerRadius
-        containerBg.layer.borderWidth = 1
-        containerBg.layer.borderColor = #colorLiteral(red: 0.2470588235, green: 0.6352941176, blue: 0.2470588235, alpha: 1)
-        containerBg.clipsToBounds = true
+        clipsToBounds = true
+        layer.cornerRadius = cornerRadius
+        
+        containerBg.backgroundColor = color
+        layer.borderWidth = 1
+        layer.borderColor = color.cgColor
     }
     
     override init(frame: CGRect) {
@@ -103,22 +117,24 @@ open class StepperView: UIView {
     }
     
     @objc func up(_ sender: Any) {
-        stepperValue = min((stepperValue + 1), maxValue)
+        let newValue = min((stepperValue + 1), maxValue)
         
-        if stepperValue == maxValue {
+        if newValue == stepperValue {
             delegate?.reachedAtMax(value: stepperValue)
         } else {
-            delegate?.valueDidChange(value: stepperValue)
+            delegate?.valueDidChange(value: newValue)
         }
+        stepperValue = newValue
     }
     
     @objc func down(_ sender: Any) {
-        stepperValue = max((stepperValue - 1), minValue)
+        let newValue = max((stepperValue - 1), minValue)
         
-        if stepperValue == minValue {
+        if newValue == stepperValue {
             delegate?.reachedAtMin(value: stepperValue)
         } else {
-            delegate?.valueDidChange(value: stepperValue)
+            delegate?.valueDidChange(value: newValue)
         }
+        stepperValue = newValue
     }
 }

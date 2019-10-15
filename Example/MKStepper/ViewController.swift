@@ -11,13 +11,16 @@ import MKStepper
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var stepperView: StepperView!
+    @IBOutlet weak var stepperView: MKStepperView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         stepperView.delegate = self
         stepperView.stepperValue = 2
+        stepperView.minValue = 1
+        stepperView.maxValue = 5
+        stepperView.color = UIColor.red
     }
 
     override func didReceiveMemoryWarning() {
