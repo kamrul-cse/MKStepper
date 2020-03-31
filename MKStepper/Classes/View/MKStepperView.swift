@@ -17,7 +17,11 @@ import UIKit
 @IBDesignable
 open class MKStepperView: UIView {
     
-    @IBInspectable open var minValue:Int = 1
+    @IBInspectable open var minValue:Int = 1 {
+        didSet {
+            stepperValue = minValue
+        }
+    }
     @IBInspectable open var maxValue:Int = 5
     
     @IBInspectable open var color: UIColor = #colorLiteral(red: 0.2470588235, green: 0.6352941176, blue: 0.2470588235, alpha: 1) {
@@ -94,6 +98,8 @@ open class MKStepperView: UIView {
         let stack = UIStackView(arrangedSubviews: [minusView, valueLabel, plusView])
         stack.alignment = .fill
         stack.axis = .horizontal
+        
+        stack.heightAnchor.constraint(equalTo: stack.widthAnchor, multiplier: 1/3).isActive = true
         
         addSubview(stack)
         stack.edgeAnchors == edgeAnchors + buttonPadding
