@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MKStepper'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.swift_version    = '5.0'
   s.summary          = 'A simple customizable stepper for iOS.'
 
